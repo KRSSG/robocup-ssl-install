@@ -6,8 +6,10 @@ if [ "$#" -ne 1 ]; then
   exit
 fi
 
+# requires ros to be installed...
+
 cd "$1"
-# assuming ros is installed
+# assuming ros is installed. should have sourced /opt/ros/..../setup.zsh or wahtver
 rosv=`rosversion -d`
 echo "/opt/ros/$rosv/setup.bash"
 source "/opt/ros/$rosv/setup.bash"
@@ -39,3 +41,21 @@ git clone https://github.com/KRSSG/vision_comm.git
 git clone https://github.com/KRSSG/traj_controller.git
 git clone https://github.com/KRSSG/navigation.git
 git clone https://github.com/KRSSG/refBox.git
+
+# assumee
+# installation dependencies
+
+sudo apt-get install build-essential
+
+# cmake
+sudo apt-get install software-properties-common
+sudo -E add-apt-repository ppa:george-edison55/cmake-3.x
+
+# g++4.9
+sudo -E add-apt-repository ppa:ubuntu-toolchain-r/test
+
+# update
+sudo apt-get update
+
+# install everything
+sudo apt-get install g++-4.9 cmake qt5-default libqt5svg5-dev libprotobuf-dev
