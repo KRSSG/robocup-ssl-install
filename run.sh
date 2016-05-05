@@ -57,5 +57,24 @@ sudo -E add-apt-repository ppa:ubuntu-toolchain-r/test
 # update
 sudo apt-get update
 
+# instructions for vartypes:
+# [In a temporary directory]
+mkdir tmpname_noclash && cd tmpname_noclash
+wget http://vartypes.googlecode.com/files/vartypes-0.7.tar.gz
+tar xfz vartypes-0.7.tar.gz
+cd vartypes-0.7
+mkdir build && cd build
+cmake ..
+make 
+sudo make install
+cd ../../
+rm -rf tmpname_noclash
 # install everything
-sudo apt-get install g++-4.9 cmake qt5-default libqt5svg5-dev libprotobuf-dev
+sudo apt-get install g++-4.9 cmake qt5-default libqt5svg5-dev libprotobuf-dev protobuf-compiler libode2-dev screen
+
+# make krssg_ssl_msgs first
+cd ..
+catkin_make --pkg krssg_ssl_msgs
+
+# then make the rest
+catkin_make
