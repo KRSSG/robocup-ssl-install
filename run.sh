@@ -60,7 +60,7 @@ sudo apt-get update
 # instructions for vartypes:
 # [In a temporary directory]
 mkdir tmpname_noclash && cd tmpname_noclash
-wget http://vartypes.googlecode.com/files/vartypes-0.7.tar.gz
+wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/vartypes/vartypes-0.7.tar.gz
 tar xfz vartypes-0.7.tar.gz
 cd vartypes-0.7
 mkdir build && cd build
